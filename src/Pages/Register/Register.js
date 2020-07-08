@@ -3,6 +3,7 @@ import { registerUser, fetchData } from "../../redux/Actions/Register";
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import {
   Container,
@@ -109,6 +110,7 @@ function Register(props) {
             <Button color="primary">
               Register
             </Button>
+            <p>Already Have an account? <Link to={`/`}>Log in</Link></p>
           </Col>
         </Form>
       </Container>
