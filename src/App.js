@@ -1,6 +1,21 @@
 import React from "react";
 
 import "./App.css";
+import PrivateRoute from './helpers'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function App() {
   return (
@@ -12,15 +27,15 @@ function App() {
             <Route exact path="/">
               <Login />
             </Route>
-            <Route exact path="/">
+            <Route exact path="/register">
               <Login />
             </Route>
-            <PrivateRoute exact path="/Restaurant">
-              <PokemonList />
+            <PrivateRoute exact path="/restaurant">
+              <Restaurant />
             </PrivateRoute>
 
-            <PrivateRoute exact path="/Restaurant/:name">
-              <PokemonDetails />
+            <PrivateRoute exact path="/restaurant/:name">
+              <RestaurantDetail />
             </PrivateRoute>
            
           </Switch>
