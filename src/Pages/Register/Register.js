@@ -110,7 +110,7 @@ function Register(props) {
             <Button color="primary">
               Register
             </Button>
-            <p>Already Have an account? <Link to={`/`}>Log in</Link></p>
+            <p>Already Have an account? </p>
           </Col>
         </Form>
       </Container>

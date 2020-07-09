@@ -14,7 +14,7 @@ import logger from "redux-logger";
 function App() {
   return (
     <Provider store={createStore(Reducer, applyMiddleware(logger,thunk))}>
-      <Register />
+    
       <Restaurant />
     </Provider>
   );
