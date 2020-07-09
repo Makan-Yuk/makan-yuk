@@ -1,6 +1,7 @@
 import React from "react";
-import { MDBJumbotron, MDBBtn, MDBContainer, MDBRow, MDBCol,  MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardText } from "mdbreact";
+import { MDBJumbotron, MDBBtn, MDBContainer, MDBRow, MDBCol,  MDBCardImage, MDBCardBody, MDBCardText } from "mdbreact";
 import { createGlobalStyle } from 'styled-components'
+import Image from "../../Assets/Image/zomato.png"
 
 const Container = createGlobalStyle`
     body {
@@ -19,12 +20,11 @@ const LandingPage = () => {
                 <MDBJumbotron className="p-0">
                     <MDBCardImage
                     className="img-fluid"
-                    src="https://mdbootstrap.com/img/Photos/Slides/img%20(134).jpg"
+                    src={Image}
                     />
                     <MDBCardBody>
-                        <MDBCardTitle className="h1">ZOMATO</MDBCardTitle>
-                        <MDBCardText className="h5">
-                            Temukan makanan & minuman terbaik di Jakarta
+                        <MDBCardText className="h3">
+                            Temukan makanan & minuman terbaik di Jakarta.
                         </MDBCardText>
                         <MDBBtn href="login"  rounded>
                             SIGN IN
