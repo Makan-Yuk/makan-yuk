@@ -40,8 +40,8 @@ function Restaurant(props) {
   }, []);
 
   return (
-    <Container>
-      <h1 style={{ textAlign: "center" }}>Makan Yuk</h1>
+    <Container style={{ textAlign: "center" }}>
+      <h1 >Makan Yuk</h1>
       <Row style={{height:'400px'}} xs="3" sm="4" md="4">
         {props.resto.restaurants !== undefined &&
           props.resto.restaurants.map((data) => {
