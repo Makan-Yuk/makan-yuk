@@ -2,64 +2,67 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { login } from "../../redux/Actions";
 import { useHistory } from "react-router-dom";
-import {
-    Button,
-    Form,
-    FormGroup,
-    Label,
-    Input,
-    Container,
-    Col,
-    Row,
-} from "reactstrap";
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
+import styled from "styled-components"
+
+const BoxCenter = styled.div`
+    margin:auto;
+`;
+
 
 function Login(props) {
     const history = useHistory();
-
-    const [form, setForm] = useState({ email: "", password: "" });
-    const handleSubmit = (event) => {
-        event.preventDefault();
-
-        props.dispatch(login(form, history));
-    };
+    const [userLogin, setUserLogin] = useState({
+        email: "",
+        password: "",
+    });
 
     const handleChange = (event) => {
-        setForm({ ...form, [event.target.name]: event.target.value });
+        setUserLogin({
+            ...userLogin,
+            [event.target.name]: event.target.value,
+
+            
+        });
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        props.dispatch(login(userLogin, history)); 
+        localStorage.setItem("user", JSON.stringify(userLogin.email));
+        history.push("/");
     };
     return (
         <div>
-            <Container>
-                <Row>
-                    <Col
-                        md={{ size: 4, offset: 4 }}
-                        xs={{ size: 10, offset: 1 }}
-                    >
-                        <Form onSubmit={handleSubmit}>
-                            <FormGroup>
-                                <Label for="Email">Email</Label>
-                                <Input
+            <MDBContainer>
+                <MDBRow>
+                    <MDBCol md="4">
+                        <form onSubmit={handleSubmit}>
+                            <div>
+                                <MDBInput label="Type your email" icon="envelope" group type="email" validate error="wrong" success="right"
                                     type="text"
                                     name="email"
                                     placeholder="email"
                                     onChange={handleChange}
-                                    value={form.email}
+                                    value={userLogin.email}
+                                    required
                                 />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label for="Password">Password</Label>
-                                <Input
+                            </div>
+                            <div>
+                                <MDBInput label="Type your password" icon="lock" group type="password" validate 
                                     type="password"
                                     name="password"
                                     placeholder="password"
                                     onChange={handleChange}
-                                    value={form.password}
+                                    value={userLogin.password}
+                                    required
                                 />
-                            </FormGroup>
-                            <Button type="submit">Login</Button>
-                        </Form>
-                    </Col>
-                </Row>
-            </Container>
+                            </div>
+                            <MDBBtn type="submit">Login</MDBBtn>
+                        </form>
+                    </MDBCol>
+                </MDBRow>
+            </MDBContainer>    
         </div>
     );
 }
