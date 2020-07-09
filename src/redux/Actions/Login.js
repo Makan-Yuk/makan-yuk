@@ -28,6 +28,7 @@ const login = (formData, history) => async (dispatch) => {
         }
     } else {
         alert("Email anda tidak terdaftar");
+      
     }
 };
 

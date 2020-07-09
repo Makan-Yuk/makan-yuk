@@ -10,11 +10,22 @@ import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import logger from "redux-logger";
+import LandingPage from "./Pages/LandingPage/LandingPage";
 
 function App() {
   return (
     <Provider store={createStore(Reducer, applyMiddleware(logger,thunk))}>
-      <Login/>
+      <Router>
+          <Switch>
+              <Route exact path="/login">
+                  <Login />
+              </Route>
+              <Route exact path="/">
+                  <LandingPage />
+              </Route>
+             
+          </Switch>
+      </Router>
     </Provider>
   );
 }
