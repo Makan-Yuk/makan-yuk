@@ -16,10 +16,9 @@ function App() {
               <Route exact path="/login">
                   <Login />
               </Route>
+              <Route exact path="/">
+                  <LandingPage />
+              </Route>
           </Switch>
       </Router>
     </Provider>
-  );
-}
-
-export default App;
