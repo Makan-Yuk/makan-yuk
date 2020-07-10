@@ -30,7 +30,7 @@ function App() {
               <Restaurant />
             </PrivateRoute>
 
-            <PrivateRoute exact path="/restaurant/:name">
+            <PrivateRoute exact path="/restaurant/:id">
               <RestaurantDetail />
             </PrivateRoute>
            
