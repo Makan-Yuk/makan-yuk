@@ -49,12 +49,13 @@ function Restaurant(props) {
               <Col key={data.restaurant.id}>
                 <Card>
                   <CardTitle>{data.restaurant.name}</CardTitle>
+                  <Link to={`/restaurant/${data.restaurant.id}`}>
                   <img
                     width="100%"
                     height="180px"
                     src={data.restaurant.featured_image}
                     alt="poster"
-                  />
+                  /></Link>
                   <CardBody>
                     <CardText>
                       Rating : {data.restaurant.user_rating.aggregate_rating}{" "}
@@ -64,9 +65,9 @@ function Restaurant(props) {
                       Location : {data.restaurant.location.locality_verbose}
                     </CardText>
 
-                    {/* <Link to={`/restaurant`}> */}
+                    
                       <button>Detail</button>
-                    {/* </Link> */}
+                    
                   </CardBody>
                 </Card>
               </Col>
