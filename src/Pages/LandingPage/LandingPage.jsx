@@ -26,10 +26,10 @@ const LandingPage = () => {
                         <MDBCardText className="h3">
                             Temukan makanan & minuman terbaik di Jakarta.
                         </MDBCardText>
-                        <MDBBtn href="login"  rounded>
+                        <MDBBtn href="login" className="ripe-malinka-gradient">
                             SIGN IN
                         </MDBBtn>
-                        <MDBBtn href="register" rounded>
+                        <MDBBtn href="register" >
                             REGISTER
                         </MDBBtn>
                     </MDBCardBody>
