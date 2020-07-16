@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { Col, Card, CardTitle, Container, Row } from "reactstrap";
-import { fetchRestaurant } from "../../redux/Actions/Restaurant.js";
-import { connect } from "react-redux";
+import { fetchRestaurants } from "../../redux/Actions";
+import { useDispatch, useSelector } from 'react-redux';
+
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -32,19 +33,25 @@ const CardText = styled.p`
   text-align: center;
 `;
 
-function Restaurant(props) {
+function Restaurant() {
+  const dispatch = useDispatch()
+  const restaurant =useSelector(
+    (state) => state.restaurant.restaurants
+  )
+  
   useEffect(() => {
-    props.dispatch(fetchRestaurant());
-
+    dispatch(fetchRestaurants());
     //eslint-disable-next-line
   }, []);
+  
 
+ 
   return (
     <Container style={{ textAlign: "center" }}>
       <h1>Makan Yuk</h1>
       <Row style={{ height: "400px" }} xs="3" sm="4" md="4">
-        {props.resto.restaurants !== undefined &&
-          props.resto.restaurants.map((data) => {
+        {restaurant !== null &&
+          restaurant.map((data) => {
             return (
               <Col key={data.restaurant.id}>
                 <Card>
@@ -78,10 +85,5 @@ function Restaurant(props) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    resto: state.resto,
-  };
-};
 
-export default connect(mapStateToProps, null)(Restaurant);
+export default Restaurant;

@@ -1,27 +1,42 @@
-const GET_RESTAURANT = "GET_RESTAURANT";
+import { GET_RESTAURANTS, GET_RESTAURANT_DETAILS } from "./types";
 
-const getRestaurant = (datas) => {
-    return {
-        type: GET_RESTAURANT,
-        datas,
-    };
+export const fetchRestaurants = () => async (dispatch) => {
+  let url =
+    "https://developers.zomato.com/api/v2.1/search?entity_id=74&entity_type=city";
+
+  let options = {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json",
+      "user-key": "fbc186efae066a9143548813c862cc77",
+    },
+  };
+
+  let response = await fetch(url, options);
+  let results = await response.json();
+
+  dispatch({
+    type: GET_RESTAURANTS,
+    payload: results.restaurants,
+  });
 };
 
-const fetchRestaurant = () => async (dispatch) => {
-    const url =
-        "https://developers.zomato.com/api/v2.1/search?entity_id=74&entity_type=city";
-    const option = {
-        method: "GET",
-        headers: {
-            "content-type": "application/json",
-            "user-key": "fbc186efae066a9143548813c862cc77",
-        },
-    };
+export const getRestaurantDetails = (id) => async (dispatch) => {
+  let url = `https://developers.zomato.com/api/v2.1/restaurant?res_id=${id}`;
 
-    const response = await fetch(url, option);
-    const result = await response.json();
-    console.log(result)
-    dispatch(getRestaurant(result));
+  let options = {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json",
+      "user-key": "fbc186efae066a9143548813c862cc77",
+    },
+  };
+
+  let response = await fetch(url, options);
+  let results = await response.json();
+
+  dispatch({
+    type: GET_RESTAURANT_DETAILS,
+    payload: results,
+  });
 };
-
-export { GET_RESTAURANT, getRestaurant, fetchRestaurant };

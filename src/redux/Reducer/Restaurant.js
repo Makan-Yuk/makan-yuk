@@ -1,13 +1,23 @@
-import {GET_RESTAURANT} from '../Actions/Restaurant'
-const initialState = [];
+import { GET_RESTAURANTS, GET_RESTAURANT_DETAILS } from '../Actions';
 
-export default (state = initialState, actions) => {
-  console.log(actions);
-  switch (actions.type) {
-    case GET_RESTAURANT:
-      return actions.datas;
+const initialState = {
+    restaurants: null,
+    selectedRestaurant: null,
+};
 
-    default:
-      return state;
-  }
+export default (state = initialState, action) => {
+    switch (action.type) {
+        case GET_RESTAURANTS:
+            return {
+                ...state,
+                restaurants: action.payload,
+            };
+        case GET_RESTAURANT_DETAILS:
+            return {
+                ...state,
+                selectedRestaurant: action.payload,
+            };
+        default:
+            return state;
+    }
 };

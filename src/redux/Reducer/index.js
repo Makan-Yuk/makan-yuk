@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import resto from "./Restaurant";
-export * from "./Restaurant";
-export * from "./RestaurantDetails";
 
+import restaurantReducer from "./Restaurant";
 
-export default combineReducers({ resto });
+export default combineReducers({
+  restaurant: restaurantReducer,
+});

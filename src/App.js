@@ -11,10 +11,11 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Restaurant from "./Pages/Restaurant/Restaurant";
 import RestaurantDetail from "./Pages/RestaurantDetail/RestaurantDetail";
 import logger from "redux-logger";
+import store from './redux/store'
 
 function App() {
   return (
-    <Provider store={createStore(Reducer, applyMiddleware(logger, thunk))}>
+    <Provider store={store}>
       
       
       <Router>
