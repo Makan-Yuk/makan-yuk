@@ -1,5 +1,6 @@
+ 
 {
-  "name": "my-app",
+  "name": "react-zomato-apps",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,11 +13,15 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-thunk": "^1.0.0",
     "reactstrap": "^8.5.1",
     "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "sweetalert2": "^9.15.3",
+    "sweetalert2-react-content": "^3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

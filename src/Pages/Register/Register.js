@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { registerUser, fetchData } from "../../redux/Actions/Register";
+import { registerUser, fetchData } from "../../redux/Actions";
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import styled from "styled-components";
